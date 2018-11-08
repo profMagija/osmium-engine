@@ -22,6 +22,9 @@ namespace osmium
 		expr_parts_iterator(const std::vector<ref<value>> &parts, int start, int end, int step) 
 			: start_(start), parts_(parts), end_(end), curr_(start-1), step_(step)
 		{}
+
+		expr_parts_iterator(const expr_parts_iterator&) = default;
+
 		bool next() override 
 		{
 			curr_ += step_; 
@@ -31,6 +34,10 @@ namespace osmium
 		ref<value> get() override
 		{
 			return parts_[curr_];
+		}
+		value_iterator* clone() const override 
+		{
+			return new expr_parts_iterator(*this);
 		}
 		
 
@@ -52,6 +59,7 @@ namespace osmium
 		\brief Returns vector of children including head of expression 
 		*/
 		std::vector<ref<value>> children() const; 
+		bool matches(ref<value> target) const override;
 
 	private:
 		std::vector<ref<value>> parts_;
