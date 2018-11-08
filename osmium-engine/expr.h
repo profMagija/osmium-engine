@@ -59,7 +59,6 @@ namespace osmium
 		\brief Returns vector of children including head of expression 
 		*/
 		std::vector<ref<value>> children() const; 
-		bool matches(ref<value> target) const override;
 
 	private:
 		std::vector<ref<value>> parts_;

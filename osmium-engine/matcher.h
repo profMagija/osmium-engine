@@ -13,5 +13,5 @@ namespace osmium
         virtual bool match(ref<value> pattern, std::vector<ref<value>> target) const =0;
     private:
         matcher* next_;
-    }
+    };
 }
