@@ -4,6 +4,12 @@
 cmake_minimum_required (VERSION 3.8)
 
 # Add source to this project's executable.
-add_executable (osmiumengine "osmium-engine.cpp" "osmium-engine.h")
+add_executable (osmiumengine
+    "atom"
+    "env"
+    "expr"
+    "symtab"
+    "osmium-engine"
+)
 
 # TODO: Add tests and install targets if needed.

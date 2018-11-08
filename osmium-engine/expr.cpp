@@ -14,7 +14,6 @@ namespace osmium {
 	expr::expr(std::vector<ref<value>> parts) noexcept
 		: parts_(std::move(parts)), atom_head_(parts_[0]->atom_head())
 	{
-		_ASSERTE(parts_.size() > 0); // must not create empty expr
 	}
 
 	ref<value> expr::head() const

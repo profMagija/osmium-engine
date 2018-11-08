@@ -22,6 +22,6 @@ namespace osmium
 	}
 	symbol * symbol_table::get(std::string context, std::string name, bool create)
 	{
-
+		return nullptr;
 	}
 }

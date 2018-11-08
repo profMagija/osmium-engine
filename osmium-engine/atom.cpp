@@ -16,6 +16,6 @@ namespace osmium
 
 	ref<atom> symbol_expr::atom_head() const
 	{
-		return enable_shared_from_this<atom>::shared_from_this();
+		return enable_shared_from_this<symbol_expr>::shared_from_this();
 	}
 }
