@@ -51,7 +51,7 @@ namespace osmium
 		/*
 		\brief Returns vector of children including head of expression 
 		*/
-		std::vector<ref<value>> leaves() const; 
+		std::vector<ref<value>> children() const; 
 
 	private:
 		std::vector<ref<value>> parts_;

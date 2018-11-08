@@ -36,7 +36,7 @@ namespace osmium {
 		return new expr_parts_iterator(parts_, start, end, step);
 	}
 
-	std::vector<ref<value>> expr::leaves() const 
+	std::vector<ref<value>> expr::children() const 
 	{
 		return parts_; 
 	}
