@@ -26,7 +26,7 @@ namespace osmium
 
 	void system_context::init(environment * env)
 	{
-#define SYMBOL(name) name = env->symtab.get(string("System`"), string(#name));
+#define SYMBOL(name) name = env->symtab.get_symbol(string("System`"), string(#name));
 #include "system.inc"
 #undef SYMBOL
 	}

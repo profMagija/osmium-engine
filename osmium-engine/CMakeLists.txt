@@ -10,6 +10,8 @@ add_executable (osmiumengine
     "expr"
     "symtab"
     "osmium-engine"
+    "symbol_expr"
+    "symbol"
 )
 
 # TODO: Add tests and install targets if needed.

@@ -26,4 +26,7 @@ namespace osmium {
 		return atom_head_;
 	}
 
+	expr expr::clone()  const 
+	{
+	}
 }
