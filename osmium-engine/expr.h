@@ -48,6 +48,10 @@ namespace osmium
 		ref<atom> atom_head() const override;
 		expr clone() const;
 		value_iterator* parts(int start, int end, int step) const;
+		/*
+		\brief Returns vector of children including head of expression 
+		*/
+		std::vector<ref<value>> leaves() const; 
 
 	private:
 		std::vector<ref<value>> parts_;
