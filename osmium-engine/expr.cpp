@@ -28,5 +28,6 @@ namespace osmium {
 
 	expr expr::clone()  const 
 	{
+		return expr(this->parts_);
 	}
 }
