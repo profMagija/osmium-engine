@@ -31,7 +31,7 @@ namespace osmium {
 		return expr(this->parts_);
 	}
 
-	value_iterator*  expr::parts(int start, int end, int step)
+	value_iterator*  expr::parts(int start, int end, int step) const 
 	{
 		return new expr_parts_iterator(parts_, start, end, step);
 	}

@@ -19,7 +19,7 @@ namespace osmium
 		int step_;
 		std::vector<ref<value>> parts_; 
 	public:
-		expr_parts_iterator(std::vector<ref<value>> &parts, int start, int end, int step) 
+		expr_parts_iterator(const std::vector<ref<value>> &parts, int start, int end, int step) 
 			: start_(start), parts_(parts), end_(end), curr_(start-1), step_(step)
 		{}
 		bool next() override 
@@ -47,7 +47,7 @@ namespace osmium
 		ref<value> head() const override;
 		ref<atom> atom_head() const override;
 		expr clone() const;
-		value_iterator* parts(int start, int end, int step); 
+		value_iterator* parts(int start, int end, int step) const;
 
 	private:
 		std::vector<ref<value>> parts_;
