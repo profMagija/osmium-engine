@@ -5,17 +5,17 @@ using namespace std;
 
 namespace osmium
 {
-	string symbol::name() const
+	wstring symbol::name() const
 	{
 		return name_;
 	}
 
-	string symbol::context() const
+	wstring symbol::context() const
 	{
 		return context_;
 	}
 
-	symbol::symbol(string context, string name)
+	symbol::symbol(wstring context, wstring name)
 		: context_(move(context)), name_(move(name))
 	{
 
