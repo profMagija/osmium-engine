@@ -13,6 +13,8 @@ add_executable (osmiumengine
     "osmium-engine"
     "symbol_expr"
     "symbol"
+    "matchers/blank"
 )
+
 
 # TODO: Add tests and install targets if needed.

@@ -9,6 +9,8 @@ namespace osmium
 	public:
 		std::wstring name() const;
 		std::wstring context() const;
+		bool operator<(const symbol&) const;
+		bool operator==(const symbol&) const;
 
 	protected:
 		symbol(std::wstring context, std::wstring name);

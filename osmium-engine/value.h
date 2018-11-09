@@ -26,5 +26,6 @@ namespace osmium
 		virtual bool is_number() const { return false; }
 		virtual bool is_string() const { return false; }
 		virtual bool is_symbol() const { return false; }
+		virtual int compare(ref<value>) const =0;
 	};
 }

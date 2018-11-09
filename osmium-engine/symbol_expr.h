@@ -12,6 +12,7 @@ namespace osmium
 		ref<value> head() const override;
 		ref<atom> atom_head() const override;
 		const symbol* get_symbol() const { return sym_; }
+		int compare(ref<value>) const override; 
 
 	private:
 		symbol* sym_;
