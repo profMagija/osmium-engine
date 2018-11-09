@@ -9,10 +9,12 @@ add_executable (osmiumengine
     "atom"
     "env"
     "expr"
-    "symtab"
+	"matcher"
     "osmium-engine"
-    "symbol_expr"
     "symbol"
+    "symbol_expr"
+    "symtab"
+	"value"
     "matchers/blank"
 )
 

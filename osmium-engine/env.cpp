@@ -26,9 +26,8 @@ namespace osmium
 
 	void system_context::init(environment * env)
 	{
-#define LSTR(x) L ## x
-#define SYMBOL(name) \
-	name = env->symtab.get_symbol(wstring(L"System`"), wstring(LSTR(#name)));
+#define SYMBOL(name, strname) \
+	name = env->symtab.get_symbol(wstring(L"System`"), wstring(strname));
 #include "system.inc"
 #undef SYMBOL
 #undef LSTR

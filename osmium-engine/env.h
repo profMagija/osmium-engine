@@ -10,7 +10,7 @@ namespace osmium
 	class system_context
 	{
 	public:
-#define SYMBOL(name) symbol * name;
+#define SYMBOL(name, strname) symbol * name;
 #include "system.inc"
 #undef SYMBOL
 

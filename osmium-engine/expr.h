@@ -7,7 +7,6 @@
 #include "value.h"
 #include "value_iterator.h"
 #include <utility>
-#include <optional>
 
 namespace osmium
 {
