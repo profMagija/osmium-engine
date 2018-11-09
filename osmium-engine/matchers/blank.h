@@ -13,6 +13,7 @@ namespace matchers
 		blank(ref<value> head, matcher* next);
 		explicit blank(matcher* next) : blank(nullptr, next) {}
         bool match(const std::vector<ref<value>>& target, bindings& matched) override;
+        
     private:
         ref<value> head_; 
     };
