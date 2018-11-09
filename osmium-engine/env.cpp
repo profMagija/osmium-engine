@@ -12,16 +12,16 @@ using namespace std;
 
 namespace osmium
 {
-	THREAD_LOCAL environment* __env;
+	THREAD_LOCAL environment* current_env;
 
 	environment* get_env()
 	{
-		return __env;
+		return current_env;
 	}
 
 	void set_env(environment* env)
 	{
-		__env = env;
+		current_env = env;
 	}
 
 	void system_context::init(environment * env)

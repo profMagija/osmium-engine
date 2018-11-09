@@ -12,7 +12,8 @@ namespace osmium
     class matcher 
     {
     public:
-        matcher(matcher* next) : next_(next) {}
+	    virtual ~matcher() = default;
+	    explicit matcher(matcher* next) : next_(next) {}
         matcher* next() const {return next_;}
         virtual bool match(std::vector<ref<value>> target, bindings matched) const =0;
     private:
