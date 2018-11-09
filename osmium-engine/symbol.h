@@ -9,6 +9,8 @@ namespace osmium
 	public:
 		std::string name() const;
 		std::string context() const;
+		bool operator<(const symbol) const;
+		bool operator==(const symbol) const;
 
 	protected:
 		symbol(std::string context, std::string name);

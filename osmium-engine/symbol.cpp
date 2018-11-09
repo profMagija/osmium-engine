@@ -20,4 +20,12 @@ namespace osmium
 	{
 
 	}
+	bool symbol::operator<(const symbol rhs) const 
+	{
+		return name() == rhs.name() ? context() < rhs.context() : name() < rhs.name(); 
+	}
+	bool symbol::operator==(const symbol rhs) const 
+	{
+		return !(*this < rhs || rhs < *this); 
+	}
 }

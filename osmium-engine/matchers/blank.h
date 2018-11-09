@@ -8,7 +8,11 @@ namespace matchers
 {
     class blank : public matcher 
     {
-        bool match(ref<value> pattern, std::vector<ref<value>> target) const override;
+    public:
+        blank(symbol sym, matcher* next) : matcher(next), sym_(sym) {} 
+        bool match(std::vector<ref<value>> target, bindings matched) const override;
+    private:
+        symbol sym_; 
     };
 }
 }

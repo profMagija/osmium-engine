@@ -40,4 +40,22 @@ namespace osmium {
 	{
 		return parts_; 
 	}
+
+	expr expr::take(int count) const 
+	{
+		auto current = clone();
+		auto childs = current.children();
+		childs.erase(childs.begin(), childs.begin()+count);
+		return expr(childs);
+	}
+	int expr::compare(ref<value> rhs) const
+	{
+		if (rhs->is_atomic()) return 1;
+		else 
+		{
+			int res(head()->compare(rhs->head()) == 0);
+			return res; // TODO we need to further compare expressions 
+			// maybe we should add is_expression function to value? 
+		}
+	}
 }
