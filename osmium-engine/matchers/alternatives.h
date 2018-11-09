@@ -11,7 +11,7 @@ namespace matchers
     public:
         explicit alternatives(std::vector<matcher*> patterns, matcher* next) 
             : matcher(next), patterns_(patterns) {}; 
-        bool match(std::vector<ref<value>>, bindings&);
+        bool match(const std::vector<ref<value>>&, bindings&);
     private: 
         std::vector<matcher*> patterns_; 
     };

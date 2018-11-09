@@ -17,6 +17,9 @@ add_executable (osmiumengine
 	"value"
     "matchers/blank"
     "matchers/blank_sequence"
+    "matchers/alternatives"
+    "matchers/repeated"
+    "matchers/lambda_matcher"
 )
 
 find_program(
