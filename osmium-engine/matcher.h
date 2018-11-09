@@ -19,6 +19,7 @@ namespace osmium
 		std::vector<ref<value>> get_matched() const { return matched_; }
 		void set_matched(const std::vector<ref<value>>& matched) { matched_ = matched; }
         void set_matched(const ref<value>& matched) {matched_ = {matched};}; 
+        void set_next(matcher* next) {next_ = next;}
     private:
         matcher* next_;
 		std::vector<ref<value>> matched_;
