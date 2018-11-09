@@ -1,6 +1,6 @@
 #include "expr.h"
 #include <utility>
-
+#include <algorithm>
 namespace osmium {
 
 	expr::expr(const ref<value>& head, const std::vector<ref<value>>& args) noexcept
@@ -53,9 +53,17 @@ namespace osmium {
 		if (rhs->is_atomic()) return 1;
 		else 
 		{
-			int res(head()->compare(rhs->head()) == 0);
-			return res; // TODO we need to further compare expressions 
-			// maybe we should add is_expression function to value? 
+			auto comp_less = [] (ref<value> x, ref<value> y) {return x->compare(y) < 0;}; 
+			auto comp_equal = [] (ref<value> x, ref<value> y) {return x->compare(y) == 0;};
+			// if rhs is not atomic, it is expression 
+			auto rhs_expr = std::static_pointer_cast<const expr>(rhs);
+			auto start = parts_.begin(); 
+			auto end = parts_.end();
+			auto start_rhs = rhs_expr->children().begin();
+			auto end_rhs = rhs_expr->children().end();
+			if (std::equal(start, end, start_rhs, end_rhs, comp_equal)) return 0;
+			else if (std::lexicographical_compare(start, end, start_rhs, end_rhs, comp_less)) return -1;
+			else return 1; 
 		}
 	}
 }
