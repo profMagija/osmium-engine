@@ -1,22 +1,32 @@
 #include "blank.h"
 
+using namespace std;
+
 namespace osmium 
 {
 namespace matchers 
 {
-    bool blank::match(std::vector<ref<value>> target, bindings matched) const  
+	blank::blank(ref<value> head, matcher * next)
+		: matcher(next), head_(move(head))
+	{
+	}
+
+	bool blank::match(const vector<ref<value>>& target, bindings& matched)
     {
-        if (target.empty()) return false; 
-        for (auto& it : matched)
-        {
-            if (it.first == sym_) 
-            {
-                if (it.second->compare(target.at(0))!=0) return false; 
-            }
-        }
-        matched.push_back(std::make_pair(sym_, target.at(0)));
-        target.erase(target.begin(), target.begin() + 1);
-        return next()->match(target, matched);
+		if (target.empty()) {
+			set_matched(nullptr);
+			return false;
+		}
+
+		if (head_ && head_->compare(target[0]->head()) != 0)
+		{
+			set_matched(nullptr);
+			return false;
+		}
+
+		set_matched(target[0]);
+
+		return next()->match(vector<ref<value>>(target.begin() + 1, target.end()), matched);
     }
 }
 }

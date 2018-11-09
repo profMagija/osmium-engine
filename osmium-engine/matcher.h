@@ -13,10 +13,13 @@ namespace osmium
     {
     public:
 	    virtual ~matcher() = default;
-	    explicit matcher(matcher* next) : next_(next) {}
+	    explicit matcher(matcher* next) : next_(next), matched_(nullptr) {}
         matcher* next() const {return next_;}
-        virtual bool match(std::vector<ref<value>> target, bindings matched) const =0;
+        virtual bool match(const std::vector<ref<value>>& target, bindings& matched) = 0;
+		ref<value> get_matched() const { return matched_; }
+		void set_matched(const ref<value>& matched) { matched_ = matched; }
     private:
         matcher* next_;
+		ref<value> matched_;
     };
 }

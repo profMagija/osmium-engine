@@ -1,5 +1,6 @@
 #pragma once 
 
+#include <utility>
 #include "../matcher.h"
 
 namespace osmium
@@ -9,10 +10,11 @@ namespace matchers
     class blank : public matcher 
     {
     public:
-        blank(symbol sym, matcher* next) : matcher(next), sym_(sym) {} 
-        bool match(std::vector<ref<value>> target, bindings matched) const override;
+		blank(ref<value> head, matcher* next);
+		explicit blank(matcher* next) : blank(nullptr, next) {}
+        bool match(const std::vector<ref<value>>& target, bindings& matched) override;
     private:
-        symbol sym_; 
+        ref<value> head_; 
     };
 }
 }
