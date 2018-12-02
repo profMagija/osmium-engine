@@ -22,6 +22,10 @@ namespace matchers
         {
             return fun_(next(), target, matched);
         }
+        std::shared_ptr<matcher> clone(matcher* next) const override
+        {
+            return std::shared_ptr<matcher>(new lambda_matcher(this->fun_, next));
+        }
     private:
         std::function<bool (matcher*, const std::vector<ref<value>>&, bindings&)> fun_; 
     };

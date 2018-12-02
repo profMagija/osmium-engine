@@ -21,6 +21,11 @@ namespace matchers
         return false; 
     }
 
+    std::shared_ptr<matcher> alternatives::clone(matcher* next) const 
+    {
+        return std::shared_ptr<matcher> (new alternatives(this->patterns_, next));
+    }
+
 } // matchers
 
 } // osmium

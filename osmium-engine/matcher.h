@@ -15,6 +15,7 @@ namespace osmium
 	    virtual ~matcher() = default;
 	    explicit matcher(matcher* next) : next_(next), matched_(std::vector<ref<value>>()) {}
         matcher* next() const {return next_;}
+        virtual std::shared_ptr<matcher> clone(matcher* next) const = 0;
         virtual bool match(const std::vector<ref<value>>& target, bindings& matched) = 0;
 		std::vector<ref<value>> get_matched() const { return matched_; }
 		void set_matched(const std::vector<ref<value>>& matched) { matched_ = matched; }

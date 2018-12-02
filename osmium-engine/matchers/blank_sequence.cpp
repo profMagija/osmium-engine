@@ -5,7 +5,7 @@ namespace osmium
 {
 namespace matchers 
 {
-    bool blank_sequence::match(std::vector<ref<value>> target, bindings& matched) 
+    bool blank_sequence::match(const std::vector<ref<value>> &target, bindings& matched) 
     {
         auto it = allow_null_ ? target.begin() : target.begin()+1; 
         while (it != target.end()) 
@@ -22,6 +22,10 @@ namespace matchers
         return false; 
         
 
+    }
+    std::shared_ptr<matcher> blank_sequence::clone(matcher* next) const 
+    {
+        return std::shared_ptr<matcher>(new blank_sequence(next, allow_null_));
     }
 }
 }

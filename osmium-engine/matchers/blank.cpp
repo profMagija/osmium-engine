@@ -28,5 +28,9 @@ namespace matchers
 
 		return next()->match(vector<ref<value>>(target.begin() + 1, target.end()), matched);
     }
+	std::shared_ptr<matcher> blank::clone(matcher* next) const 
+	{
+		return std::shared_ptr<matcher>(new blank(next));
+	} 
 }
 }
